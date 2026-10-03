@@ -1,0 +1,107 @@
+{% extends "base.html" %} {% block title %}Home | Pet Adoption & Rescue{% endblock %} {% block content %}
+
+<section class="bg-dark text-white py-5">
+  <div class="container py-5">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <h1 class="display-4 fw-bold">Give a Pet a Loving Home 🐾</h1>
+
+        <p class="lead mt-3">
+          Find your perfect companion and give a rescued pet a second chance at
+          a happy life.
+        </p>
+
+        <a href="{% url 'pet_list' %}" class="btn btn-primary btn-lg mt-3">
+          Browse Pets
+        </a>
+      </div>
+
+      <div class="col-lg-5 text-center mt-4 mt-lg-0">
+        <div class="display-1">🐶 🐱</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2>Pets Looking for a Home</h2>
+        <p class="text-muted mb-0">Meet some of our available pets.</p>
+      </div>
+
+      <a href="{% url 'pet_list' %}" class="btn btn-outline-primary">
+        View All
+      </a>
+    </div>
+
+    <div class="row g-4">
+      {% for pet in pets %}
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          {% if pet.image %}
+
+          <img
+            src="{{ pet.image.url }}"
+            class="card-img-top"
+            style="height: 240px; object-fit: cover"
+            alt="{{ pet.name }}"
+          />
+
+          {% else %}
+
+          <div
+            class="bg-light d-flex align-items-center justify-content-center"
+            style="height: 240px"
+          >
+            <span class="display-1">🐾</span>
+          </div>
+
+          {% endif %}
+
+          <div class="card-body">
+            <h4 class="card-title">{{ pet.name }}</h4>
+
+            <p class="text-muted mb-1">
+              {{ pet.animal_type }} · {{ pet.breed }}
+            </p>
+
+            <p class="mb-1">
+              <strong>Age:</strong>
+              {{ pet.age }} years
+            </p>
+
+            <p class="mb-1">
+              <strong>Gender:</strong>
+              {{ pet.gender }}
+            </p>
+
+            <p>
+              <strong>Location:</strong>
+              {{ pet.location }}
+            </p>
+
+            <a
+              href="{% url 'pet_detail' pet.pk %}"
+              class="btn btn-primary w-100"
+            >
+              View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {% empty %}
+
+      <div class="col-12 text-center py-5">
+        <h4>No pets available right now.</h4>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

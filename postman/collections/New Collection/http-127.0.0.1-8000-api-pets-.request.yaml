@@ -1,0 +1,51 @@
+$kind: http-request
+name: http://127.0.0.1:8000/api/pets/
+description: ""
+url: http://127.0.0.1:8000/api/pets/
+method: POST
+headers:
+  Authorization: Token 2f2eb3d5d5156aca30d9cd35379d007034658a18
+body:
+  type: formdata
+  content:
+    - type: text
+      key: "name "
+      value: bruno
+      description: ""
+      disabled: false
+    - type: text
+      key: "animal_type "
+      value: dog
+      description: ""
+      disabled: false
+    - type: text
+      key: breed
+      value: golden retriever
+      description: ""
+      disabled: false
+    - type: text
+      key: "age "
+      value: "3"
+      description: ""
+      disabled: false
+    - type: text
+      key: gender
+      value: male
+      description: ""
+      disabled: false
+    - type: text
+      key: "location "
+      value: dhaka
+      description: ""
+      disabled: false
+    - type: text
+      key: "description "
+      value: friendly and playful dog
+      description: ""
+      disabled: false
+    - type: text
+      key: "status "
+      value: available
+      description: ""
+      disabled: false
+order: 1791034606321

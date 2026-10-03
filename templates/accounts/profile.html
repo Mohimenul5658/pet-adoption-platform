@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %}My Profile | Pet Adoption{% endblock %} {% block content %}
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h2 class="mb-4">My Profile</h2>
+
+          <p>
+            <strong>Username:</strong>
+            {{ user.username }}
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            {{ user.email }}
+          </p>
+
+          <p>
+            <strong>Joined:</strong>
+            {{ user.date_joined|date:"d M Y" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
